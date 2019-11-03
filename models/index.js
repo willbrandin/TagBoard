@@ -1,4 +1,5 @@
 const User = require("./User"),
+  TagBoard = require("./TagBoard"),
   mongoose = require("mongoose");
 
 mongoose.set("debug", true);
@@ -11,5 +12,6 @@ mongoose.connect(process.env.DATABASE_URL, {
 mongoose.Promise = Promise;
 
 module.exports = {
-  User
+  User,
+  TagBoard
 };
