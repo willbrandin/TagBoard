@@ -34,18 +34,26 @@ exports.updateTagBoard = async (request, response) => {
 
   try {
     await TagBoard.findOneAndUpdate(
-      { id: request.params.boardId },
+      { _id: request.params.boardId },
       updatedBoard,
       { new: true }
     );
 
-    return this.getTagBoards(request, response);
+    return await this.getTagBoards(request, response);
   } catch (error) {
     return response.status(500).json(error);
   }
 };
 
-exports.deleteTagBoard = async (request, response) => {};
+exports.deleteTagBoard = async (request, response) => {
+  const id = request.params.boardId;
+  try {
+    await TagBoard.findByIdAndDelete(id);
+    return await this.getTagBoards(request, response);
+  } catch (error) {
+    return response.status(500).json(error);
+  }
+};
 
 const createTagDocument = request => {
   const { title, tags } = request.body;

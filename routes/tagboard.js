@@ -6,7 +6,7 @@ const express = require("express"),
 router.get("/", auth.isAuthorized, tagBoard.getTagBoards);
 router.post("/", auth.isAuthorized, tagBoard.createTagBoard);
 
-router.put("/boardId", auth.isAuthorized, tagBoard.updateTagBoard);
-router.delete(":/boardId", auth.isAuthorized, tagBoard.deleteTagBoard);
+router.put("/:boardId", auth.isAuthorized, tagBoard.updateTagBoard);
+router.delete("/:boardId", auth.isAuthorized, tagBoard.deleteTagBoard);
 
 module.exports = router;

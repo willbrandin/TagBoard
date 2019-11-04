@@ -13,7 +13,7 @@ const userRoutes = require("./routes/users"),
   tagBoardRoutes = require("./routes/tagboard");
 
 app.use("/api/users", userRoutes);
-app.use("/api/tag-board", tagBoardRoutes);
+app.use("/api/tag-boards", tagBoardRoutes);
 
 app.use((request, response, next) => {
   let error = new Error("Not Found");
