@@ -29,7 +29,8 @@ exports.getUser = (request, response) => {
 const createUser = async (request, response) => {
   let newUser = new User({
     email: request.body.email,
-    name: request.body.name,
+    firstName: request.body.firstName,
+    lastName: request.body.lastName,
     userCredential: request.body.userCredential
   });
 
